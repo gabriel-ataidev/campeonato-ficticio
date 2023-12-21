@@ -1,5 +1,7 @@
 const matches = document.querySelector("#matches");
 const roundCounter = document.querySelector("#roundCounter");
+const arrowRight = document.querySelector("#arrow-right");
+const arrowLeft = document.querySelector("#arrow-left");
 
 let data = [];
 let currentRound = 1;
@@ -24,6 +26,7 @@ const getPhoto = (team) => {
 };
 
 const fillCards = (round) => {
+  matches.innerHTML = "";
   for (const item of data[round - 1].games) {
     const match = `
                 <div class="match">
@@ -50,8 +53,41 @@ const fillCards = (round) => {
   roundCounter.innerHTML = `RODADA ${round}`;
 };
 
+const previousRound = () => {
+  if (currentRound > 1) {
+    currentRound--;
+    matches.innerHTML = "<div class='spinner'></div>";
+    fillCards(currentRound);
+  }
+  checkArrowColor();
+};
+
+const nextRound = () => {
+  if (currentRound < data?.length) {
+    currentRound++;
+    matches.innerHTML = "<div class='spinner'></div>";
+    fillCards(currentRound);
+  }
+  checkArrowColor();
+};
+
+const checkArrowColor = () => {
+  if (currentRound == 1) {
+    arrowLeft.style.opacity = "0.5";
+    arrowLeft.style.cursor = "auto";
+  } else if (currentRound == data.length) {
+    arrowRight.style.cursor = "auto";
+    arrowRight.style.opacity = "0.5";
+  } else {
+    arrowRight.style.opacity = "1";
+    arrowLeft.style.opacity = "1";
+    arrowRight.style.cursor = "pointer";
+    arrowLeft.style.cursor = "pointer";
+  }
+};
 
 (async function () {
   await fetchData();
   fillCards(currentRound);
+  checkArrowColor();
 })();
