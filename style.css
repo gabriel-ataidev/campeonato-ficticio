@@ -78,6 +78,7 @@
     justify-content: space-between;
     align-items: center;
     padding: 25px 0;
+    animation: horizontalAnimation .4s ease-in-out;
 }
 
 .match:not(:last-child) {
@@ -103,6 +104,16 @@
 .match_result span {
     color: #000;
     font: 700 20px Inter, sans-serif;
+}
+
+@keyframes horizontalAnimation {
+    0% {
+        transform: translateX(-6px);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
 }
 
 .spinner {
