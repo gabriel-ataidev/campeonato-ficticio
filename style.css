@@ -15,3 +15,102 @@
     color: #fff;
     font: 900 22px Inter, sans-serif;
 }
+
+#content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 50px 20px;
+    width: fit-content;
+    margin: 0 auto;
+}
+
+#title {
+    color: #000;
+    text-align: center;
+    font: 400 26px Inter, sans-serif;
+    padding-bottom: 40px;
+}
+
+#card {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    padding: 20px;
+    border: 2px solid #b9b9b9;
+    border-radius: 12px;
+    width: 100%;
+    max-width: 450px;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+}
+
+.arrow-button {
+    background-color: transparent;
+    border: none;
+    transition: .4s;
+    cursor: pointer;
+
+    &:hover {
+        opacity: 0.9;
+    }
+}
+
+.rounds h2 {
+    color: #000;
+    text-align: center;
+    font: 400 20px Inter;
+}
+
+.rounds h3 {
+    color: #000;
+    text-align: center;
+    font: 700 14px Inter;
+}
+
+.match {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 25px 0;
+}
+
+.match:not(:last-child) {
+    border-bottom: 2px solid #b9b9b9;
+}
+
+.team {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.team span {
+    color: #000;
+    font: 700 14px Inter, sans-serif;
+}
+
+.match_result {
+    display: flex;
+    gap: 15px;
+}
+
+.match_result span {
+    color: #000;
+    font: 700 20px Inter, sans-serif;
+}
+
+@media (max-width: 350px) {
+    #content {
+        padding: 50px 5px;
+    }
+
+    #navbar, #title {
+        font-size: 18px
+    }
+}
